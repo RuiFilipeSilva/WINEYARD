@@ -1,10 +1,14 @@
 <template>
-  <nav class="navbar navbar-expand-lg   ">
+  <nav class="navbar navbar-expand-lg  navbar-expand-md">
     <a href="" class="navbar-left">
       <router-link to="/home"></router-link
       ><img style="width:30px" src="../assets/logo.png" />
     </a>
     <a class="navbar-brand" href="#">Wineyard</a>
+      <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <div class=" dropdown nav-item ">
         <a
@@ -70,6 +74,7 @@
       </li>
       <!--GESTÂO DO ADMIN-->
     </ul>
+  </div>
   </nav>
 </template>
 
@@ -77,7 +82,7 @@
 export default {
   name: "Navbar",
   props: {},
-  created: function() {
+  created: function () {
     if (localStorage.getItem("loggedUser")) {
       this.$store.state.loggedUser = JSON.parse(
         localStorage.getItem("loggedUser")
@@ -94,8 +99,8 @@ export default {
     },
     getTypeUser() {
       return this.$store.getters.typeUser;
-    }
-  }
+    },
+  },
 };
 </script>
 
